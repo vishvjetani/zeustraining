@@ -46,7 +46,7 @@
                     <div class="forgot"><a>forgot username?</a></div>
             </div>
             <div><label for="password"></label><input type="password" id="password" name="Password"
-                    placeholder="Password*">
+                    placeholder="Password*"><button class="passwordvisibility" type="button" onclick="togglePassword()"><img src="images/preview.svg" class="previewbtn"></button>
                     <div class="forgot"><a>forgot password?</a></div>
                 </div>
             <div><input type="checkbox" id="remember" value="Yes" name="Remember" class="hidden-checkbox"><label for="remember" class="custom-checkbox">Remember me</label></div>
@@ -60,7 +60,17 @@
     <div class="footer">
         <div><img src="images/logo used in footer.svg"></div><div> <span class="or copyright"> | </span> Copyright &copy; 2020-2021  <span class="bold">Zeus Systems Pvt.Ltd.</span>  All rights reserved.
         </div>
+<script>
+                function togglePassword() {
+  const passwordField = document.getElementById('password');
+  if (passwordField.type === 'password') {
+    passwordField.type = 'text';
+  } else {
+    passwordField.type = 'password';
+  }
+}
 
+            </script>
 </body>
 
 </html>
