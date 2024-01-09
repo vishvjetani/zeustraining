@@ -1,0 +1,55 @@
+body{
+    margin: 0px;
+    background-color: rgb(245, 203, 203);
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; */
+}
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Slab', serif; */
+
+.main{
+    width: 457px;
+    height: 138px;
+    background-color: white;
+    margin : 60px auto;
+    display: flex;
+}
+.desc{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 14px;
+    /* margin-bottom: 12px; */
+}
+.username{
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.main img{
+    width : 130px;
+    height : 130px;
+    margin: 4px;
+    margin-right: 14px;
+}
+i{
+    color: #858991;
+    font-size: 20px;
+    margin-right: 14px;
+}
+.value{
+    color: #858991;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    margin-right: 24px;
+}
+.bottomrow{
+    margin-top: -19px;
+    display: flex;
+    align-items: center;
+}

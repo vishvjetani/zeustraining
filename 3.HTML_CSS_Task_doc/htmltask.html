@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Task - For HTML and CSS</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <h1>My first web page</h1>
+    <h2>What this is</h2>
+    <p>Welcome to <em>my first webpage.</em> I created this webpage without the assistance of webpage editor.Just my little text editor and a keen <span><Strong>understanding of html.</Strong></span></p>
+    <h2>Why this is</h2>
+    <ul>
+        <li>To learn HTML</li>
+        <li>List element</li>
+        <ol>
+            <li>Home</li>
+            <li>FAQ</li>
+            <li>Contact</li>
+            <li>About</li>
+        </ol>
+        <li>Here I created ordered and unordered list</li>
+    </ul>
+    <h2><strong>ZeusLearning.com</strong></h2>
+    <a href="https://www.zeuslearning.com/" style="color: purple;" target="_blank">This link will open zeusLearning.com in new tab</a>
+    <h2>On click of following image navigate to Google.com</h2>
+    <a href="http://www.google.com" target="_blank"><img src="google.jpg" alt="google logo" width="150px" height="90px"></a>
+    <p class="random"><strong>some random table</strong></p>
+    <table>
+        <tbody>
+            <tr>
+                <td>Row 1, cell 1</td>
+                <td>Row 1, cell 2</td>
+                <td>Row 1, cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, cell 1</td>
+                <td>Row 2, cell 2</td>
+                <td>Row 2, cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 3, cell 1</td>
+                <td>Row 3, cell 2</td>
+                <td>Row 3, cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 4, cell 1</td>
+                <td>Row 4, cell 2</td>
+                <td>Row 4, cell 3</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="random"><strong>some random form</strong></p>
+    <p><span><strong>Note: </span></strong>It looks the part, but won't do a anything</p>
+    <form name="excerciseform" enctype="multipart/form-data" id="excercise" method="post">
+        <label for="fname">Name: </label><span id="nameerror" class="error"></span><br><br>
+        <input type="text" placeholder="Your name" id="fname" name="Full_Name" autofocus><br><br>
+        <label for="comments">Comments:</label><span id="commentserror" class="error"></span><br><br>
+        <textarea placeholder="Your comments" rows="10" cols="23" id="comments" name="Comments"></textarea><br><br>
+        Are you: <span id="gendererror" class="error"></span><br><br>
+        <input type="radio" value="Male" id="male" name="gender"><label for="male">Male</label><br><br>
+        <input type="radio" value="Female" id="female" name="gender"><label for="female">Female</label><br><br>
+        <button type="submit" value="Submit Query">Submit Query</button><br><br>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
