@@ -1,3 +1,6 @@
+@import './_dashboarMixins';
+@import './_dashboardVariable';
+
 @font-face {
   font-family: "quicksand";
   src: url("./Quicksand\ font\ 1/Quicksand-VariableFont_wght.ttf");
@@ -20,12 +23,11 @@ body {
 .header {
   background-image: url(images/header\ pattern\ svg.svg);
   background-color: #25313f;
-  mix-blend-mode: darken;
   background-blend-mode: overlay;
   width: 100%;
   height: 56px;
   color: lightgreen;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,25 +58,27 @@ body {
   align-items: center;
 }
 
-#menuscontent,#menusicon{
+.menuscontent,
+.menusicon {
   height: 100%;
   align-items: center;
   cursor: pointer;
 }
 
-.icon{
+.icon {
   display: none;
 }
 
 
-.menus div{
+.menus div {
   display: flex;
 }
 
 
-.highlightnav, #menuscontent li:hover{
-  color:white;
-  border-bottom:4px solid white;
+.highlightnav,
+.menuscontent li:hover {
+  color: white;
+  border-bottom: 4px solid white;
   cursor: pointer;
 }
 
@@ -86,7 +90,7 @@ body {
   border-radius: 50%;
 }
 
-#profileimg{
+#profileimg {
   left: 46px;
   background-color: white;
   color: black;
@@ -107,7 +111,7 @@ body {
 }
 
 
-.coursedetails div  {
+.coursedetails div {
   display: flex;
   align-items: center;
   text-align: center;
@@ -118,29 +122,30 @@ body {
 }
 
 
-.coursedetails div a p{
+.coursedetails div a p {
   display: inline-block;
   font-size: 16px;
   font-weight: 500;
   color: #222222;
 }
 
-.coursedetails div div{
+.coursedetails div div {
   width: fit-content;
 }
 
-.course-class{
+.course-class {
   margin-left: 16px;
 }
 
-.highlightcourse,.coursedetails>div:hover{
+.highlightcourse,
+.coursedetails>div:hover {
   border-bottom: 4px solid #222222;
 }
 
-.num{
+.num {
   font-size: 24px;
   font-weight: bold;
-  color:#222222
+  color: #222222
 }
 
 .sortfeature {
@@ -171,10 +176,10 @@ select {
   outline: none;
   margin-left: 4px;
   background-color: white;
-  margin-top:16px;
+  margin-top: 16px;
 }
 
-#customselect{
+#customselect {
   background-color: #eeeeee;
   margin-top: 0px;
 }
@@ -198,16 +203,16 @@ select {
   position: relative;
 }
 
-.favourite{
+.favourite {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   margin-right: 16px;
 }
 
-.bordercontainer{
+.bordercontainer {
   border-bottom: 1px solid lightgray;
-  padding-left:24px; 
+  padding-left: 24px;
   height: 198px;
 }
 
@@ -230,7 +235,7 @@ select {
   font-size: 14px;
   line-height: 18px;
   font-weight: 500;
-  margin-top:40px;
+  margin-top: 40px;
 }
 
 .or {
@@ -251,15 +256,15 @@ select {
   margin-left: 24px;
 }
 
-.iconcontainer{
+.iconcontainer {
   height: 40px;
   justify-content: space-around;
   align-items: center;
-  padding-top:18px;
+  padding-top: 18px;
   padding-bottom: 11px;
 }
 
-.contentdiv{
+.contentdiv {
   margin-left: 10px;
   margin-right: 10px;
   height: 197px;
@@ -267,7 +272,7 @@ select {
   width: 60%;
 }
 
-p{
+p {
   font-size: 12px;
   line-height: 16px;
   color: #666666;
@@ -275,92 +280,89 @@ p{
   font-weight: 500;
 }
 
-.containerheader{
-  font-size:16px;
+.containerheader {
+  font-size: 16px;
   line-height: 20px;
   color: #222222;
   font-weight: bold;
 }
 
-.digit{
+.digit {
   font-weight: bold;
 }
 
-.main_container .container div img{
-  margin-top:24px;
+.main_container .container div img {
+  margin-top: 24px;
 }
 
-.expired{
+.expired {
   width: 52px;
   height: 18px;
   color: #D80000;
   position: absolute;
   font-size: 10px;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   text-transform: uppercase;
-  color: #D80000;;
+  color: #D80000;
+  ;
   background: #FFE4E6;
   text-align: center;
   font-weight: 500;
-  padding:4px 7px 2px 5px;
+  padding: 4px 7px 2px 5px;
   border-radius: 2px;
 }
 
-.notifications{
+.notifications {
   background-color: #2A7FF3;
-  color:white;
-font-size: 12px;
-border-radius: 50%;
-position: absolute;
-top: 2px;;
-left: 38px;
-padding: 2px;
-height: 17px;
-width: 17px;
-text-align: center;
-z-index: 2;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 38px;
+  padding: 2px;
+  height: 17px;
+  width: 17px;
+  text-align: center;
+  z-index: 2;
 }
 
-.extra{
-  color:#1F7A54
+.extra {
+  color: #1F7A54
 }
 
-.subject{
-  margin-right:5px;
+.subject {
+  margin-right: 5px;
 }
 
 
 @media (max-width: 768px) and (min-height: 1024px) {
-  .main{
+  .main {
     width: 70%;
     margin: auto;
   }
 
-  .icon{
-    display: inline-block;
+  .icon {
+    display: block;
   }
 
-  .menus{
-    position: relative;
+  .menuscontent{
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #25313f;
+    color: #8ddc97;
+    height: fit-content;
+    z-index: 2;
+    transition: 0.3s;
   }
 
-  #menuscontent {
-  flex-direction: column;
-  position: absolute;
-  right: 0;
-  top: 50px;
-  color: white;
-  background-color: #25313f;
-  color: #8ddc97;
-  height: max-content;
-  width: 50%;
-  z-index: 2;
-}
-
-  #menusicon li{
-    margin-right:10px;
-    margin-left:0px;
+  .menusicon li {
+    margin-right: 10px;
+    margin-left: 0px;
+    width: 100%;
   }
 
 }
