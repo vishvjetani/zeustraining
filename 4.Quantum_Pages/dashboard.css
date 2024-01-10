@@ -366,3 +366,9 @@ p {
   }
 
 }
+
+@media (min-width:768px){
+    #menuscontentid{
+        display: flex !important;
+    }
+}
