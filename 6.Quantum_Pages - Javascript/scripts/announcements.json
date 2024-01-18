@@ -4,33 +4,38 @@
         "message": "No classes will be held on 21st Nov",
         "files":2,
         "date":"15-Sep-2018",
-        "time":"07:21 pm"
+        "time":"07:21 pm",
+        "unread":false
     },
     {
         "PA": "Samson White",
         "message":"Guest lecture on Geometry on 20th September",
         "files":2,
         "date":"15-Sep-2018",
-        "time":"07:21 pm"
+        "time":"07:21 pm",
+        "unread":true
     },
     {
         "PA": "Wilson Kumar",
         "message":"Additional course materials available on request",
-        "Course": "Mathematics 101",
+        "course": "Mathematics 101",
         "date":"15-Sep-2018",
-        "time":"07:21 pm"
+        "time":"07:21 pm",
+        "unread":false
     },
     {
         "PA": "Wilson Kumar",
         "message":"No classes will be held on 25th Dec",
         "date":"15-Sep-2018",
-        "time":"07:21 pm"
+        "time":"07:21 pm",
+        "unread":true
     },
     {
         "PA": "Wilson Kumar",
         "message":"Additional course materials available on request",
-        "Course": "Mathematics 101",
+        "course": "Mathematics 101",
         "date":"15-Sep-2018",
-        "time":"07:21 pm"
+        "time":"07:21 pm",
+        "unread":true
     }
 ]

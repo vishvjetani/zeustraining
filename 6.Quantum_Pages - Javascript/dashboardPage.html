@@ -20,30 +20,75 @@
             <li><a>USERS</a></li>
             <li><a>REPORTS</a></li>
             <li><a>ADMIN</a></li>
-          </div>
+          </div> 
           <div class="menusicon">
             <li class="alert-icon">
               <img src="images/alerts.svg" />
               <span class="notifications" id="noofalerts"></span>
-              <div class="alert-preview"></div>
+              <div class="alert-preview">
+                <div class="alert-content"></div>
+                <div class="showall"><a>SHOW ALL</a></div>
+              </div>
             </li>
             <li class="announcement-icon">
               <img src="images/announcements.svg" />
               <span class="notifications" id="noofannouncements">1</span>
               <div class="announcement-preview">
-                <div class="announcement-box"></div>
+                <div class="announcement-content"></div>
+                <div class="showall_createnew">
+                  <div>
+                    <a class="showall">SHOW ALL</a>
+                  </div>
+                  <div>|</div>
+                  <div>
+                    <a class="createnew">CREATE NEW</a>
+                  </div>
+                </div>
               </div>
             </li>
             <li>
               <a><img src="images/profile.png" id="profile" /></a>
               <span class="notifications" id="profileimg">T</span>
             </li>
-            <li>
-              <img
-                src="images/hamburger-menu.svg"
-                class="hamburger"
-                onclick="navbarfunction()"
-              />
+            <li class="hamburger-icon">
+              <img src="images/hamburger-menu.svg" class="hamburger-img" />
+              <div class="mobile-menu">
+                <div><a>DASHBOARD</a></div>
+                <div class="has-submenu">
+                  <div class="caret-container">
+                    <a>CONTENT</a>
+                    <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                <div class="submenu">
+                  <div>COURSE CATALOG</div>
+                </div>
+                </div>
+                <div class="has-submenu">
+                  <div class="caret-container">
+                    <a>USERS</a>
+                    <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                    <div class="submenu"></div>
+                  </div>
+                  <div class="has-submenu">
+                    <div class="caret-container">
+                      <a>REPORTS</a>
+                    <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                    <div class="submenu"></div>
+                  </div> 
+                  <div class="has-submenu">
+                    <div class="caret-container">
+                      <a>ADMIN</a>
+                      <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                    <div class="submenu"></div>
+                </div>
+              </div>
             </li>
           </div>
         </ul>
@@ -186,14 +231,8 @@
         <span class="bold">Zeus Systems Pvt.Ltd.</span> All rights reserved.
       </div>
     </div>
-    <script src="scripts/dashboard.js"></script>
+    <script type="module" src="scripts/dashboard.js"></script>
+     <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+     <!-- <script src="./scripts/dashboard_typescript.ts" type="module"></script> -->
   </body>
-  <script>
-    function navbarfunction() {
-      var x = document.getElementById("menuscontentid");
-
-      if (x.style.display == "none") x.style.display = "flex";
-      else x.style.display = "none";
-    }
-  </script>
 </html>

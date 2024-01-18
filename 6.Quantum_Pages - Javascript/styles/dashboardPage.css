@@ -6,11 +6,14 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   background-color: #eeeeee;
   margin: 0;
   height: 100vh;
-  width: 100vw;
   font-family: "Quicksand";
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -30,12 +33,13 @@ body {
   color: lightgreen;
   font-size: 20px;
   font-weight: 500;
+  border-bottom: 2px solid #31B9E4;
 }
 .header .logo {
   margin-left: 24px;
   margin-top: 6px;
 }
-.header ul {
+.header .menus {
   list-style-type: none;
   height: 56px;
   display: flex;
@@ -43,7 +47,7 @@ body {
   justify-content: flex-start;
   align-items: stretch;
 }
-.header ul li {
+.header .menus li {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -54,12 +58,9 @@ body {
   height: 100%;
 }
 
-.menus div {
-  display: flex;
-}
-
 .menuscontent,
 .menusicon {
+  display: flex;
   height: 100%;
   align-items: center;
   cursor: pointer;
@@ -71,6 +72,17 @@ body {
   cursor: pointer;
 }
 
+@keyframes customTransition {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 .menusicon .notifications {
   background-color: #2A7FF3;
   color: white;
@@ -85,22 +97,42 @@ body {
   text-align: center;
   z-index: 2;
 }
-.menusicon .hamburger {
-  display: none;
-}
-.menusicon .alert-preview, .menusicon .announcement-preview {
+.menusicon .alert-preview,
+.menusicon .announcement-preview,
+.menusicon .hamburger-img,
+.menusicon .mobile-menu {
   display: none;
 }
 .menusicon .alert-icon:hover .alert-preview {
-  width: 315px;
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   position: absolute;
   z-index: 2;
   right: 0;
   top: 55px;
-  overflow: auto;
+  animation: customTransition 1s ease;
+}
+.menusicon .alert-icon:hover .alert-preview .alert-content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 315px;
+  height: 500px;
+  overflow: auto;
+}
+.menusicon .alert-icon:hover .alert-preview .showall {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2392156863);
+  height: 48px;
+  color: #1F7A54;
 }
 .menusicon .alert-icon:hover .alert-preview .alert-box {
   padding: 0 16px;
@@ -115,25 +147,45 @@ body {
 .menusicon .alert-icon:hover .alert-preview .alert-box .time {
   text-align: right;
 }
-.menusicon .alert-icon:hover .alert-preview div:nth-child(even) {
-  background-color: #FFFFFF;
+.menusicon .check {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-.menusicon .alert-icon:hover .alert-preview div:nth-child(odd) {
-  background-color: #FFFFEE;
-}
-.menusicon .alert-icon:hover .alert-preview .alert-highlight {
+.menusicon .highlight {
   font-weight: bold;
 }
 .menusicon .announcement-icon:hover .announcement-preview {
-  width: 315px;
-  height: 582px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   position: absolute;
   top: 55px;
   right: 0px;
   z-index: 2;
-  overflow: auto;
+  animation: customTransition 1s ease;
+}
+.menusicon .announcement-icon:hover .announcement-preview .announcement-content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 315px;
+  height: 582px;
+  overflow: auto;
+}
+.menusicon .announcement-icon:hover .announcement-preview .showall_createnew {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2392156863);
+  height: 48px;
+  color: #1F7A54;
 }
 .menusicon .announcement-icon:hover .announcement-preview .announcement-box {
   padding: 0 16px;
@@ -141,18 +193,40 @@ body {
   font-size: 14px;
   display: block;
   border: 1px solid rgba(34, 34, 34, 0.1215686275);
+  height: -moz-fit-content;
+  height: fit-content;
 }
-.menusicon .announcement-icon:hover .announcement-preview div:nth-child(even) {
+
+.unread {
+  background-color: #FFFFEE;
+}
+
+.read {
   background-color: #FFFFFF;
 }
-.menusicon .announcement-icon:hover .announcement-preview div:nth-child(odd) {
-  background-color: #FFFFEE;
+
+.correct {
+  width: 18px;
+  height: 18px;
 }
 
 .instruction {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
   font-size: 12px;
+}
+.instruction .announcement-file {
+  display: flex;
+  margin: auto;
+}
+.instruction .announcement-date {
+  margin-left: auto;
+}
+.instruction .attach {
+  width: 16px;
+  height: 15px;
 }
 
 #profile {
@@ -379,33 +453,80 @@ select {
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .menusicon .hamburger {
+img {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menuscontent {
+    display: none;
+  }
+  .menusicon .hamburger-img {
     display: block;
   }
-  .menuscontent {
-    flex-direction: column;
+  .menusicon .hamburger-icon:hover .mobile-menu {
     position: absolute;
-    right: 14px;
-    top: 50px;
-    color: #1F7A54;
     background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    right: -2px;
+    top: 55px;
+    align-items: flex-start;
+    z-index: 12;
+    color: #1F7A54;
     box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.2392156863);
     width: 280px;
-    height: 288px;
-    z-index: 2;
-    transition: 0.3s;
+    animation: customTransition 1s ease;
+  }
+  .menusicon .hamburger-icon:hover .mobile-menu > div {
+    padding: 15px;
+  }
+  .menusicon .hamburger-icon:hover .mobile-menu .has-submenu .submenu {
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+  }
+  .menusicon .hamburger-icon:hover .mobile-menu .has-submenu .submenu.open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    padding: 15px;
+    padding-bottom: 0px;
+  }
+  .menusicon .hamburger-icon:hover .mobile-menu .has-submenu:hover {
+    background-color: #F3F3F3;
+  }
+  .mobile-menu div {
+    width: 100%;
+  }
+  .caret-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .caretbutton {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    padding: 0;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    margin-right: 0;
+  }
+  .caretbutton .caret {
+    width: 12px;
+    height: 15px;
   }
 }
-@media (max-width: 1028px) {
+@media screen and (max-width: 1028px) {
   .main {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
-@media (min-width: 769px) {
-  #menuscontentid {
-    display: flex !important;
+@media screen and (min-width: 769px) {
+  .menuscontent {
+    display: flex;
   }
 }/*# sourceMappingURL=dashboardPage.css.map */

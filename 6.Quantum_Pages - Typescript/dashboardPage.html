@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./styles/dashboardPage.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div>
+        <img src="images/logo used in header.svg" class="logo" />
+      </div>
+      <div>
+        <ul class="menus">
+          <div class="menuscontent" id="menuscontentid">
+            <li><a>DASHBOARD</a></li>
+            <li><a>CONTENT</a></li>
+            <li><a>USERS</a></li>
+            <li><a>REPORTS</a></li>
+            <li><a>ADMIN</a></li>
+          </div> 
+          <div class="menusicon">
+            <li class="alert-icon">
+              <img src="images/alerts.svg" />
+              <span class="notifications" id="noofalerts"></span>
+              <div class="alert-preview">
+                <div class="alert-content"></div>
+                <div class="showall"><a>SHOW ALL</a></div>
+              </div>
+            </li>
+            <li class="announcement-icon">
+              <img src="images/announcements.svg" />
+              <span class="notifications" id="noofannouncements">1</span>
+              <div class="announcement-preview">
+                <div class="announcement-content"></div>
+                <div class="showall_createnew">
+                  <div>
+                    <a class="showall">SHOW ALL</a>
+                  </div>
+                  <div>|</div>
+                  <div>
+                    <a class="createnew">CREATE NEW</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a><img src="images/profile.png" id="profile" /></a>
+              <span class="notifications" id="profileimg">T</span>
+            </li>
+            <li class="hamburger-icon">
+              <img src="images/hamburger-menu.svg" class="hamburger-img" />
+              <div class="mobile-menu">
+                <div><a>DASHBOARD</a></div>
+                <div class="has-submenu">
+                  <div class="caret-container">
+                    <a>CONTENT</a>
+                    <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                <div class="submenu">
+                  <div>COURSE CATALOG</div>
+                </div>
+                </div>
+                <div class="has-submenu">
+                  <div class="caret-container">
+                    <a>USERS</a>
+                    <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                    <div class="submenu"></div>
+                  </div>
+                  <div class="has-submenu">
+                    <div class="caret-container">
+                      <a>REPORTS</a>
+                    <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                    <div class="submenu"></div>
+                  </div> 
+                  <div class="has-submenu">
+                    <div class="caret-container">
+                      <a>ADMIN</a>
+                      <button class="caretbutton" type="button" data-toggle="dropdown">
+                      <img src="images/down-chevron.svg" class="caret"></button>
+                    </div>
+                    <div class="submenu"></div>
+                </div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="coursedetails">
+        <div>
+          <div>
+            <img src="images/courses.svg" />
+          </div>
+          <div class="course-class">
+            <p><span class="num">4</span> Courses</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="images/classes.svg" />
+          </div>
+          <div class="course-class">
+            <p><span class="num">4</span> Classes</p>
+          </div>
+        </div>
+      </div>
+      <div class="sortfeature">
+        <div>Showing 4 of 4 Courses</div>
+        <div class="sortby">
+          Sort By :
+          <select id="customselect">
+            <option value="cname">Course Name</option>
+            <option value="ud">Upload Date</option>
+          </select>
+          <img src="images/sort.svg" id="sortarrow" />
+        </div>
+      </div>
+      <div class="main">
+        <!-- <div class="main_container">
+                <div class="container bordercontainer">
+                    <div><img src="images/imageMask-1.svg" class="course-icon"></div>
+                    <div class="contentdiv">
+                        <p class="containerheader">Accleration</p>
+                        <p><span class="subject">Physics </span> | Grade 7 <span class="extra">+2</span></p>
+                        <p><span class="digit">4</span> Units <span class="digit">18</span> Lessons <span
+                                class="digit">24</span> Topics</p>
+                        <select>
+                            <option>Mr. Frank's Class B</option>
+                        </select>
+                        <p>50 Students | 21-Jan-2020 - 21-Aug-2020</p>
+                    </div>
+                    <div>
+                        <img src="images/favourite.svg" class="favourite">
+                    </div>
+                </div>
+                <div class="container iconcontainer">
+                    <span><img src="images/preview.svg"></span>
+                    <span><img src="images/manage course.svg"></span>
+                    <span><img src="images/grade submissions.svg"></span>
+                    <span><img src="images/reports.svg"></span>
+                </div>
+            </div>
+            <div class="main_container">
+                <div class="container bordercontainer">
+                    <div><img src="images/imageMask-2.svg" class="course-icon"></div>
+                    <div class="contentdiv">
+                        <p class="containerheader">Displacement, Velocity and Speed</p>
+                        <p><span class="subject">Physics 2</span> | Grade 6 <span class="extra">+3</span></p>
+                        <p><span class="digit">2</span> Units <span class="digit">15</span> Lessons <span
+                                class="digit">20</span> Topics</p>
+                        <select disabled>
+                            <option value="No Classes">No Classes</option>
+                        </select>
+                    </div>
+                    <div>
+                        <img src="images/favourite.svg" class="favourite">
+                    </div>
+                </div>
+                <div class="container iconcontainer">
+                    <span><img src="images/preview.svg"></span>
+                    <span><img src="images/manage course.svg"></span>
+                    <span><img src="images/grade submissions.svg"></span>
+                    <span><img src="images/reports.svg"></span>
+                </div>
+            </div>
+            <div class="main_container">
+                <div class="container bordercontainer">
+                    <div><img src="images/imageMask.svg" class="course-icon"></div>
+                    <div class="contentdiv">
+                        <p class="containerheader">Introduction to Biology: Micro organisms and how they affec...</p>
+                        <p><span class="subject">Biology</span> | Grade 4 <span class="extra">+1</span></p>
+                        <p><span class="digit">5</span> Units <span class="digit"> 16</span> Lessons <span
+                                class="digit"> 22</span> Topics</p>
+                        <select>
+                            <option>All Classes</option>
+                        </select>
+                        <p>300 Students</p>
+                    </div>
+                    <div>
+                        <img src="images/favourite.svg" class="favourite">
+                    </div>
+                </div>
+                <div class="container iconcontainer">
+                    <span><img src="images/preview.svg"></span>
+                    <span><img src="images/manage course.svg"></span>
+                    <span><img src="images/grade submissions.svg"></span>
+                    <span><img src="images/reports.svg"></span>
+                </div>
+            </div>
+            <div class="main_container">
+                <div class="container bordercontainer">
+                    <span class="expired">expired</span>
+                    <div><img src="images/imageMask-3.svg" class="course-icon"></div>
+                    <div class="contentdiv">
+                        <p class="containerheader">Introduction to High School Mathematics</p>
+                        <p><span class="subject">Mathematics</span> | Grade 8 <span class="extra">+3</span></p>
+                        <select>
+                            <option>Mr. Frank's Class A</option>
+                        </select>
+                        <p>44 Students | 14-Oct-2019 - 20-Oct-2020</p>
+                    </div>
+                    <div>
+                        <img src="images/favourite.svg" class="favourite">
+                    </div>
+                </div>
+                <div class="container iconcontainer">
+                    <span><img src="images/preview.svg"></span>
+                    <span><img src="images/manage course.svg"></span>
+                    <span><img src="images/grade submissions.svg"></span>
+                    <span><img src="images/reports.svg"></span>
+                </div>
+            </div> -->
+      </div>
+    </div>
+    <div id="contact">
+      <a>About </a> <span class="pipe"> | </span> <a>Contact us </a>
+    </div>
+    <div class="footer">
+      <div><img src="images/logo used in footer.svg" /></div>
+      <div>
+        <span class="pipe copyright"> | </span> Copyright &copy; 2020-2021
+        <span class="bold">Zeus Systems Pvt.Ltd.</span> All rights reserved.
+      </div>
+    </div>
+    <script type="module" src="scripts/dashboard.js"></script>
+     <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+     <!-- <script src="./scripts/dashboard_typescript.ts" type="module"></script> -->
+  </body>
+</html>

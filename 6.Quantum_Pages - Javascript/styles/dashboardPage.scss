@@ -10,12 +10,15 @@
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
+
 body {
     // @include flexContainer($flexdirection: column, $alignItems: center);
     background-color: #eeeeee;
     margin: 0;
     height: 100vh;
-    width: 100vw;
     font-family: "Quicksand";
     min-width: fit-content;
     overflow-x: hidden;
@@ -31,13 +34,14 @@ body {
     color: lightgreen;
     font-size: $fontsizeLarge;
     font-weight: $fontweightMedium;
+    border-bottom: 2px solid #31B9E4;
 
     .logo {
         margin-left: 24px;
         margin-top: 6px;
     }
 
-    ul {
+    .menus {
         list-style-type: none;
         height: 56px;
         @include flexContainer();
@@ -53,12 +57,9 @@ body {
     }
 }
 
-.menus div {
-    display: flex;
-}
-
 .menuscontent,
 .menusicon {
+    display: flex;
     height: 100%;
     align-items: center;
     cursor: pointer;
@@ -68,6 +69,20 @@ body {
     color: white;
     border-bottom: 4px solid white;
     cursor: pointer;
+}
+
+@keyframes customTransition {
+    0% {
+        transform: translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .menusicon {
@@ -86,26 +101,37 @@ body {
         z-index: 2;
     }
 
-    .hamburger {
-        display: none;
-    }
-
-    .alert-preview,.announcement-preview {
+    .alert-preview,
+    .announcement-preview,
+    .hamburger-img,
+    .mobile-menu {
         display: none;
     }
 
     .alert-icon:hover .alert-preview {
-        width: 315px;
-        height: 500px;
+        @include flexContainer($flexdirection: column);
         position: absolute;
         z-index: 2;
         right: 0;
         top: 55px;
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
+        animation: customTransition 1s ease;
 
+        .alert-content {
+            @include flexContainer($flexdirection: column);
+            width: 315px;
+            height: 500px;
+            overflow: auto;
 
+        }
+
+        .showall {
+            @include flexContainer($alignItems: center, $justifyContent: center);
+            background-color: #FFFFFF;
+            font-size: $fontsizeMedium;
+            box-shadow: 0px 1px 6px #0000003D;
+            height: 48px;
+            color: #1F7A54;
+        }
 
         .alert-box {
             padding: 0 16px;
@@ -123,31 +149,40 @@ body {
             }
         }
 
-        div {
-            &:nth-child(even) {
-                background-color: #FFFFFF;
-            }
 
-            &:nth-child(odd) {
-                background-color: #FFFFEE;
-            }
-        }
-
-        .alert-highlight {
-            font-weight: bold;
-        }
+        
     }
 
+    .check {
+        @include flexContainer($justifyContent: space-between, $alignItems: center)
+    }
+        .highlight {
+            font-weight: bold;
+        }
+
     .announcement-icon:hover .announcement-preview {
-        width: 315px;
-        height: 582px;
+        @include flexContainer($flexdirection: column);
         position: absolute;
         top: 55px;
         right: 0px;
         z-index: 2;
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
+        animation: customTransition 1s ease;
+
+        .announcement-content {
+            @include flexContainer($flexdirection: column);
+            width: 315px;
+            height: 582px;
+            overflow: auto;
+        }
+
+        .showall_createnew {
+            @include flexContainer($justifyContent: space-evenly, $alignItems: center);
+            background-color: #FFFFFF;
+            font-size: $fontsizeMedium;
+            box-shadow: 0px 1px 6px #0000003D;
+            height: 48px;
+            color: #1F7A54;
+        }
 
         .announcement-box {
             padding: 0 16px;
@@ -155,25 +190,43 @@ body {
             font-size: 14px;
             display: block;
             border: 1px solid #2222221F;
+            height: fit-content;
         }
 
-        div {
-            &:nth-child(even) {
-                background-color: #FFFFFF;
-            }
 
-            &:nth-child(odd) {
-                background-color: #FFFFEE;
-            }
-        }
     }
 }
 
-  .instruction {
-    display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-  }
+.unread {
+    background-color: #FFFFEE;
+}
+
+.read {
+    background-color: #FFFFFF;
+}
+
+.correct {
+    width: 18px;
+    height: 18px;
+}
+
+.instruction {
+    @include flexContainer($justifyContent: space-between);
+    font-size: 12px;
+
+    .announcement-file {
+        display: flex;
+        margin: auto;
+    }
+
+    .announcement-date {
+        margin-left: auto;
+    }
+    .attach{
+        width: 16px;
+        height: 15px;
+    }
+}
 
 #profile {
     width: 32px;
@@ -404,30 +457,93 @@ select {
     font-weight: $fontweightBold;
 }
 
-@media (max-width: 768px) {
+img {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menuscontent {
+        display: none;
+    }
+
     .menusicon {
-        .hamburger {
+
+        .hamburger-img {
             display: block;
+        }
+
+        .hamburger-icon:hover .mobile-menu {
+            position: absolute;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            right:-2px;
+            top: 55px;
+            align-items: flex-start;
+            z-index: 12;
+            color: #1F7A54;
+            box-shadow: 0px 13px 20px #0000003D;
+            width: 280px;
+            animation: customTransition 1s ease;
+        
+
+            >div{
+                padding: 15px;
+            }
+            
+            .has-submenu{
+                .submenu {
+                display: none;
+                transition: opacity 0.3s ease-in-out;
+                visibility: hidden;
+                
+                &.open {
+                    display: block;
+                    opacity: 1;
+                    visibility: visible;
+                    padding: 15px;
+                    padding-bottom: 0px;
+                }
+            }
+            &:hover{
+                background-color: #F3F3F3;
+            }
+            
+        }
+
         }
     }
 
-    .menuscontent {
-        flex-direction: column;
-        position: absolute;
-        right: 14px;
-        top: 50px;
-        color: #1F7A54;
-        background-color: #FFFFFF;
-        box-shadow: 0px 13px 20px #0000003D;
-        width: 280px;
-        height: 288px;
-        z-index: 2;
-        transition: 0.3s;
+    .mobile-menu {
+        div {
+            width: 100%;
+        }
+    }
 
+
+    .caret-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .caretbutton {
+        appearance: none;
+        padding: 0;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        margin-right: 0;
+        
+        .caret {
+            width: 12px;
+            height: 15px;
+        }
+        
     }
 }
 
-@media (max-width: 1028px) {
+@media screen and (max-width: 1028px) {
     .main {
         width: 80%;
         margin-left: auto;
@@ -435,8 +551,9 @@ select {
     }
 }
 
-@media (min-width:769px) {
-    #menuscontentid {
-        display: flex !important;
+@media screen and (min-width:769px) {
+    .menuscontent {
+        display: flex;
     }
+
 }

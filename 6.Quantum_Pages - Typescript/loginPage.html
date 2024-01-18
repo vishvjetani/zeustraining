@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum</title>
+    <link rel="stylesheet" href="./styles/loginPage.css">
+</head>
+
+<body>
+    <div class="header"><img src="./images/logo used in header.svg" class="logo"></div>
+    <div class="login">
+        <div class="formheading">
+            <a href=""><img src="./images/back.svg" alt="back button"></a>
+            <h2>Log in with Quantum</h2>
+        </div>
+        <form enctype="multipart/form-data">
+            <div class="formlayout">
+                <div class="radiobuttons">
+                    <input type="radio" id="district" name="Belongs" value="District" class="hidden-radio"><label
+                        for="district" class="custom-radio districtlabel">District</label>
+                    <input type="radio" id="is" name="Belongs" value="Independent school" class="hidden-radio"><label
+                        for="is" class="custom-radio">Independent
+                        school</label>
+                </div>
+                <div>
+                    <label class="labelfont">State*</label>
+                    <div>
+                        <select>
+                            <option value="Alabama">Alabama</option>
+                            <option value="Alabama2">Alabama 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="labelfont">District*</label>
+                    <div>
+                        <select>
+                            <option value="Alabama School District">Alabama School District</option>
+                            <option value="Alabama School District2">Alabama School District 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="username"></label><input type="text" id="username" name="Username"
+                        placeholder="Username/Email ID*">
+                    <div class="forgot"><a>forgot username?</a></div>
+                </div>
+                <div><label for="password"></label><input type="password" id="password" name="Password"
+                        placeholder="Password*"><button class="passwordvisibility" type="button"
+                        onclick="togglePassword()"><img src="images/preview.svg" class="previewbtn"></button>
+                    <div class="forgot"><a>forgot password?</a></div>
+                </div>
+                <div><input type="checkbox" id="remember" value="Yes" name="Remember" class="hidden-checkbox"><label
+                        for="remember" class="custom-checkbox">Remember me</label></div>
+                <div><input type="submit" value="LOG IN"></div>
+            </div>
+        </form>
+    </div>
+    <div id="contact">
+        <a>About </a> <span class="pipe"> | </span> <a>Contact us </a>
+    </div>
+    <div class="footer">
+        <div><img src="images/logo used in footer.svg"></div>
+        <div> <span class="pipe copyright"> | </span> Copyright &copy; 2020-2021 <span class="bold">Zeus Systems
+                Pvt.Ltd.</span> All rights reserved.
+        </div>
+        <script>
+            function togglePassword() {
+                const passwordField = document.getElementById('password');
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                } else {
+                    passwordField.type = 'password';
+                }
+            }
+        </script>
+</body>
+
+</html>

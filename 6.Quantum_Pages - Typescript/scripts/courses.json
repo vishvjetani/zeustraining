@@ -1,0 +1,134 @@
+[
+    {
+        "image": "images/imageMask-1.svg",
+        "name": "Acceleration",
+        "isFavorite": true,
+        "subject": "Physics",
+        "grade": {
+            "mainGrade": 7,
+            "additionalGrade": 2
+        },
+        "syllabus": {
+            "units": 4,
+            "lessons": 18,
+            "topics": 24
+        },
+        "class": {
+            "all": [
+                "Mr. Frank's Class B",
+                "Mr. Frank's Class A",
+                "All Classes",
+                "No Classes"
+            ],
+            "selected": "Mr. Frank's Class B"
+        },
+        "noofstudents": 50,
+        "date": [
+            "21-Jan-2020",
+            "21-Aug-2020"
+        ],
+        "icons": [
+            "images/preview.svg",
+            "images/manage course.svg",
+            "images/grade submissions.svg",
+            "images/reports.svg"
+        ]
+    },
+    {
+        "image": "images/imageMask-2.svg",
+        "name": "Displacement, Velocity and Speed",
+        "isFavorite": true,
+        "subject": "Physics 2",
+        "grade": {
+            "mainGrade": 6,
+            "additionalGrade": 3
+        },
+        "syllabus": {
+            "units": 2,
+            "lessons": 15,
+            "topics": 20
+        },
+        "class": {
+            "all": [
+                "Mr. Frank's Class B",
+                "Mr. Frank's Class A",
+                "All Classes",
+                "No Classes"
+            ],
+            "selected": [
+                "No Classes"
+            ]
+        },
+        "icons": [
+            "images/preview.svg",
+            "images/manage course.svg",
+            "images/grade submissions.svg",
+            "images/reports.svg"
+        ]
+    },
+    {
+        "image": "images/imageMask.svg",
+        "name": "Introduction to Biology: Micro organisms and how they affec...",
+        "isFavorite": true,
+        "subject": "Biology",
+        "grade": {
+            "mainGrade": 4,
+            "additionalGrade": 1
+        },
+        "syllabus": {
+            "units": 5,
+            "lessons": 16,
+            "topics": 22
+        },
+        "class": {
+            "all": [
+                "Mr. Frank's Class B",
+                "Mr. Frank's Class A",
+                "All Classes",
+                "No Classes"
+            ],
+            "selected": [
+                "All Classes"
+            ]
+        },
+        "noofstudents": 300,
+        "icons": [
+            "images/preview.svg",
+            "images/manage course.svg",
+            "images/grade submissions.svg",
+            "images/reports.svg"
+        ]
+    },
+    {
+        "image": "images/imageMask-3.svg",
+        "name": "Introduction to High School Mathematics",
+        "isFavorite": true,
+        "subject": "Mathematics",
+        "grade": {
+            "mainGrade": 8,
+            "additionalGrade": 3
+        },
+        "class": {
+            "all": [
+                "Mr. Frank's Class B",
+                "Mr. Frank's Class A",
+                "All Classes",
+                "No Classes"
+            ],
+            "selected": [
+                "Mr. Frank's Class B"
+            ]
+        },
+        "noofstudents": 44,
+        "date": [
+            "14-Oct-2019",
+            "20-Oct-2020"
+        ],
+        "icons": [
+            "images/preview.svg",
+            "images/manage course.svg",
+            "images/grade submissions.svg",
+            "images/reports.svg"
+        ]
+    }
+]
