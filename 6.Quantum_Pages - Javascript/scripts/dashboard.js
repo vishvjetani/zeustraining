@@ -25,7 +25,7 @@ const toggleAlertandAnnouncement = (event) => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const courses = await fetchFunction("./scripts/courses.json");
+  const courses =  await fetchFunction("./scripts/courses.json");
   renderQuantumDashboard(courses);
 
   const alerts = await fetchFunction("./scripts/alerts.json");
@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const announcements = await fetchFunction("./scripts/announcements.json");
   renderAnnouncements(announcements);
 
-    const submenuItems = document.querySelectorAll(".has-submenu");
+  const submenuItems = document.querySelectorAll(".has-submenu");
 
-   submenuItems.forEach((item) => {
-     const submenu = item.querySelector(".submenu");
-     const caretbutton = item.querySelector(".caretbutton");
-     const caretIcon = caretbutton.querySelector('img');
-     
+  submenuItems.forEach((item) => {
+    const submenu = item.querySelector(".submenu");
+    const caretbutton = item.querySelector(".caretbutton");
+    const caretIcon = caretbutton.querySelector("img");
+
     caretbutton.addEventListener("click", (event) => {
       event.stopPropagation();
       console.log(caretIcon.style.transform);
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.addEventListener("click", () => {
       submenu.classList.remove("open");
     });
-   });
+  });
 
   const checkboxesAlert = document.querySelectorAll(".alertcheck");
   checkboxesAlert.forEach((checkbox) => {
@@ -75,6 +75,7 @@ const renderQuantumDashboard = (courses) => {
   for (let course of courses) {
     let coursedetails = `
                 <div class="container bordercontainer">
+                ${course.expired ? `<span class="expired">expired</span>` : ""}
                     <div><img src=${course.image} class="course-icon"></div>
                     <div class="contentdiv">
                         <p class="containerheader">${course.name}</p>
@@ -225,4 +226,3 @@ const renderAnnouncements = (announcements) => {
     count++;
   }
 };
-

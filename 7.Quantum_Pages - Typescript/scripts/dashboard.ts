@@ -1,61 +1,121 @@
-import fetchFunction from "./fetchfunction.js";
+interface Course {
+  image: string;
+  name: string;
+  isFavorite: boolean;
+  subject: string;
+  grade: {
+    mainGrade: number;
+    additionalGrade: number;
+  };
+  syllabus: {
+    units: number;
+    lessons: number;
+    topics: number;
+  };
+  class: {
+    all: string[];
+    selected: string | string[];
+  };
+  expired: boolean;
+  noofstudents?: number;
+  date?: string[];
+  icons: string[];
+}
 
-const toggleAlertandAnnouncement = (event) => {
-  const checkbox = event.target;
+interface Alert {
+  title: string;
+  date: string;
+  time: string;
+  unread: boolean;
+  course?: string;
+  class?: string;
+}
+
+interface Announcement {
+  PA: string;
+  message: string;
+  files?: number;
+  date: string;
+  time: string;
+  unread: boolean;
+  course?: string;
+}
+
+
+const fetchFunction = async (url: string) => {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error loading the JSON file:", error);
+  }
+};
+
+const toggleAlertandAnnouncement = (event: Event) => {
+  const checkbox = event.target as HTMLInputElement;
   checkbox.disabled = true;
   const label = document.querySelector(`label[for="${checkbox.id}"]`);
   const boxName = checkbox.id;
-  if (checkbox.id.substr(0, 5) == "alert") {
-    document
-      .getElementById(`alert_${boxName.charAt(boxName.length - 1)}`)
-      .classList.remove("unread");
-    document
-      .getElementById(`alert_${boxName.charAt(boxName.length - 1)}`)
-      .classList.add("read");
-  } else {
-    document
-      .getElementById(`announcement_${boxName.charAt(boxName.length - 1)}`)
-      .classList.remove("unread");
-    document
-      .getElementById(`announcement_${boxName.charAt(boxName.length - 1)}`)
-      .classList.add("read");
+
+  const alertElement = document.getElementById(
+    `alert_${boxName.charAt(boxName.length - 1)}`
+  );
+  const announcementElement = document.getElementById(
+    `announcement_${boxName.charAt(boxName.length - 1)}`
+  );
+
+  if (boxName.substring(0, 5) == "alert" && alertElement) {
+    alertElement.classList.remove("unread");
+    alertElement.classList.add("read");
+  } else if (announcementElement) {
+    announcementElement.classList.remove("unread");
+    announcementElement.classList.add("read");
   }
-  const image = label.querySelector("img");
-  image.src = "images/correct.png";
+
+  const image = label?.querySelector("img");
+  image!.src = "images/correct.png";
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const courses = await fetchFunction("./scripts/courses.json");
+  const courses: Course[] = await fetchFunction("./scripts/courses.json");
   renderQuantumDashboard(courses);
 
-  const alerts = await fetchFunction("./scripts/alerts.json");
+  const alerts: Alert[] = await fetchFunction("./scripts/alerts.json");
   renderAlerts(alerts);
 
-  const announcements = await fetchFunction("./scripts/announcements.json");
+  const announcements: Announcement[] = await fetchFunction(
+    "./scripts/announcements.json"
+  );
+  
   renderAnnouncements(announcements);
 
-    const submenuItems = document.querySelectorAll(".has-submenu");
+  const submenuItems = document.querySelectorAll(".has-submenu");
 
-   submenuItems.forEach((item) => {
-     const submenu = item.querySelector(".submenu");
-     const caretbutton = item.querySelector(".caretbutton");
-     const caretIcon = caretbutton.querySelector('img');
-     
-    caretbutton.addEventListener("click", (event) => {
+  submenuItems.forEach((item) => {
+    const submenu = item.querySelector(".submenu");
+    const caretbutton = item.querySelector(".caretbutton");
+    const caretIcon = caretbutton!.querySelector("img");
+
+    caretbutton!.addEventListener("click", (event) => {
       event.stopPropagation();
-      console.log(caretIcon.style.transform);
-      if (caretIcon.style.transform == "scale(-1, -1)") {
-        caretIcon.style.transform = "none";
+      if (caretIcon!.style.transform == "scale(-1, -1)") {
+        caretIcon!.style.transform = "none";
       } else {
-        caretIcon.style.transform = "scale(-1, -1)";
+        caretIcon!.style.transform = "scale(-1, -1)";
       }
-      submenu.classList.toggle("open");
+      submenu!.classList.toggle("open");
     });
 
     document.addEventListener("click", () => {
-      submenu.classList.remove("open");
+      submenu!.classList.remove("open");
     });
-   });
+  });
 
   const checkboxesAlert = document.querySelectorAll(".alertcheck");
   checkboxesAlert.forEach((checkbox) => {
@@ -69,12 +129,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-const renderQuantumDashboard = (courses) => {
+const renderQuantumDashboard = (courses: Course[]) => {
   let mainContent = document.getElementsByClassName("main")[0];
-  console.log(courses);
-  for (let course of courses) {
+  for (let i = 0; i < courses.length; i++)
+  {
+    let course = courses[i];
     let coursedetails = `
                 <div class="container bordercontainer">
+                ${course.expired ? `<span class="expired">expired</span>` : ""}
                     <div><img src=${course.image} class="course-icon"></div>
                     <div class="contentdiv">
                         <p class="containerheader">${course.name}</p>
@@ -130,13 +192,17 @@ const renderQuantumDashboard = (courses) => {
   }
 };
 
-const renderAlerts = (alerts) => {
+const renderAlerts = (alerts: Alert[]) => {
   let alertContent = document.getElementsByClassName("alert-content")[0];
   let filteredAlerts = alerts.filter((alert) => alert["unread"] == true);
   let unreadCount = filteredAlerts.length;
-  document.getElementById("noofalerts").innerHTML = unreadCount;
+
+  const noofalerts = document.getElementById("noofalerts");
+  noofalerts!.innerHTML = unreadCount.toString();
   let count = 0;
-  for (let alert of alerts) {
+  for (let i = 0; i < alerts.length; i++)
+  {
+    let alert=alerts[i];
     let alertdetails = `
     <div class="check">
     <p class="alert_title">${alert.title}</p>
@@ -174,7 +240,7 @@ const renderAlerts = (alerts) => {
   }
 };
 
-const renderAnnouncements = (announcements) => {
+const renderAnnouncements = (announcements: Announcement[]) => {
   let announcementContent = document.getElementsByClassName(
     "announcement-content"
   )[0];
@@ -182,9 +248,12 @@ const renderAnnouncements = (announcements) => {
     (announcement) => announcement["unread"] == true
   );
   let unreadCount = filteredAnnouncements.length;
-  document.getElementById("noofannouncements").innerHTML = unreadCount;
+  const noofannouncements = document.getElementById("noofannouncements");
+  noofannouncements!.innerHTML = unreadCount.toString();
   let count = 0;
-  for (let announcement of announcements) {
+  for (let i = 0; i < announcements.length;i++)
+  {
+    let announcement = announcements[i];
     let announcementdetails = `
       <div class="check">
       <p>PA: ${announcement.PA}</p>
@@ -225,4 +294,3 @@ const renderAnnouncements = (announcements) => {
     count++;
   }
 };
-

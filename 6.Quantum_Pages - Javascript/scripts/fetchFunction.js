@@ -14,3 +14,4 @@ const fetchFunction = async (url) => {
 };
 
 export default fetchFunction;
+
