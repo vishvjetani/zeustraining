@@ -1,0 +1,72 @@
+body {
+  font-size: 20px;
+}
+
+h1 {
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.add-todo {
+  background-color: rgba(0, 0, 0, 0.767);
+  padding: 0.5rem;
+  width: 70%;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+}
+
+.todoinput {
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 100%;
+  color: white;
+  padding: 10px;
+}
+
+.update {
+  width: fit-content;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.edittodo {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#submitbtn {
+  display: none;
+}
+
+.todo-list {
+  padding: inherit;
+  background-color: rgba(0, 0, 0, 0.767);
+  color: white;
+  width: 75%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr 1fr;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+}
+
+.btn-todo {
+  width: 30px;
+  height: 30px;
+}
+
+
+.done span {
+  text-decoration: line-through;
+}
