@@ -12,11 +12,19 @@
       <div class="add-todo">
         <form class="todo-form">
           <input type="text" placeholder="Add Todo" class="todoinput" id="todo_input"/>
-          <input type="submit" id="submitbtn" />
+          <input type="submit" id="submitbtn" value="Add Task" />
         </form>
       </div>
-      <ul class="todo-list"></ul>
+      <div class="todo-count" id="todoCount"></div>
+      <div class="filter">
+        <div id="all" class="on">All</div>
+        <div id="active">Active</div>
+        <div id="completed">Completed</div>
+      </div>
+      <ul class="todo-list">
+      </ul>
     </div>
     <script src="todo.js"></script>
   </body>
 </html>
+
